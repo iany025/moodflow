@@ -3,6 +3,8 @@
 MoodFlow is a lightweight, mood-based suggestion web app that helps users find healthy, uplifting, or calming activities based on how they're feeling. Whether you're bored, anxious, grateful, or curious, MoodFlow offers personalized prompts to support mental wellness.
 
 Live app: [https://moodflow.onrender.com](https://moodflow.onrender.com)
+NOTE*
+If the site has a 502 error (bad gateway), please wait a couple seconds and then refresh the page. If it continues to not work, clone the project files locally, and run "python app.py" in the terminal
 
 Features
 - 13 Moods Supported — From happy to overwhelmed to grateful, each mood offers 10 randomized, actionable suggestions.
