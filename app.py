@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, session, redirect, url_for
-import random
-from moods import mood_suggestions, mood_emojis
-app = Flask(__name__)
+from flask import Flask, render_template, request, session, redirect, url_for  # Import necessary modules
+import random  # Import necessary modules
+from moods import mood_suggestions, mood_emojis  # Import necessary modules
+app = Flask(__name__)  # Initialize Flask app
 app.secret_key = 'moodflow-secret'
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -15,19 +15,19 @@ def index():
             suggestion = random.choice(mood_suggestions[selected_mood])
             emoji = mood_emojis.get(selected_mood, "")
 
-            history = session.get("history", [])
+            history = session.get("history", [])  # Access or update user session data
             history.append((selected_mood, suggestion))
-            session["history"] = history
+            session["history"] = history  # Access or update user session data
 
-    return render_template("index.html", suggestion=suggestion, selected_mood=selected_mood, emoji=emoji, mood_suggestions=mood_suggestions)
+    return render_template("index.html", suggestion=suggestion, selected_mood=selected_mood, emoji=emoji, mood_suggestions=mood_suggestions)  # Render HTML template
 @app.route("/favorite", methods=["POST"])
 def favorite():
     mood = request.form.get("mood")
     suggestion = request.form.get("suggestion")
-    favorites = session.get("favorites", [])
+    favorites = session.get("favorites", [])  # Access or update user session data
     if (mood, suggestion) not in favorites:
         favorites.append((mood, suggestion))
-        session["favorites"] = favorites
+        session["favorites"] = favorites  # Access or update user session data
     return redirect(url_for("index"))
 @app.route("/clear_history")
 def clear_history():

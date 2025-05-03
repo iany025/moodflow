@@ -9,9 +9,9 @@
     <div class="container">
         <button id="theme-toggle">Toggle Dark/Light Mode</button>
         <h1>MoodFlow</h1>
-        <form method="POST">
+        <form method="POST">  <!-- Form to select mood and submit -->
             <label for="mood">How are you feeling today?</label>
-            <select name="mood" id="mood">
+            <select name="mood" id="mood">  <!-- Dropdown menu for moods -->
                 <option disabled selected>Select a mood</option>
                 {% for mood in mood_suggestions.keys() %}
                     <option value="{{ mood }}">{{ mood }}</option>
@@ -24,7 +24,7 @@
             <div class="suggestion-box">
                 <h2>{{ emoji}} {{ selected_mood }} Suggestion:</h2>
                 <p>{{ suggestion }}</p>
-                <form action="{{ url_for('favorite') }}" method="POST">
+                <form action="{{ url_for('favorite') }}" method="POST">  <!-- Form to select mood and submit -->
                     <input type="hidden" name="mood" value="{{ selected_mood }}">
                     <input type="hidden" name="suggestion" value="{{ suggestion }}">
                     <button type="submit">⭐️ Favorite</button>
@@ -35,7 +35,7 @@
         {% if session.history %}
             <div class="history">
                 <h3>🕑 Recent Suggestions</h3>
-                <form id="clear-history-form" action="{{ url_for('clear_history') }}" method="GET" style="display: inline;">
+                <form id="clear-history-form" action="{{ url_for('clear_history') }}" method="GET" style="display: inline;">  <!-- Form to select mood and submit -->
                     <button type="submit" onclick="return confirmClear('history')">🧹 Clear History</button>
                 </form>
                 <ul>
@@ -48,7 +48,7 @@
         {% if session.favorites %}
             <div class="favorites">
                 <h3>⭐️ Your Favorites</h3>
-                <form id="clear-favorites-form" action="{{ url_for('clear_favorites') }}" method="GET" style="display: inline;">
+                <form id="clear-favorites-form" action="{{ url_for('clear_favorites') }}" method="GET" style="display: inline;">  <!-- Form to select mood and submit -->
                     <button type="submit" onclick="return confirmClear('favorites')">🧽 Clear Favorites</button>
                 </form>
                 <ul>
@@ -58,7 +58,7 @@
                 </ul>
             </div>
         {% endif %}
-    <script>
+    <script>  <!-- JavaScript for interactivity -->
         const toggleButton = document.getElementById("theme-toggle");
         const currentTheme = localStorage.getItem("theme") || "light";
         document.body.classList.add(currentTheme);

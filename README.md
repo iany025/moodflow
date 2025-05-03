@@ -4,7 +4,8 @@ MoodFlow is a lightweight, mood-based suggestion web app that helps users find h
 
 Live app: [https://moodflow.onrender.com](https://moodflow.onrender.com)
 NOTE*
-If the site has a 502 error (bad gateway), please wait a couple seconds and then refresh the page. If it continues to not work, clone the project files locally, and run "python app.py" in the terminal
+If the site has a 502 error (bad gateway), please wait a couple seconds and then refresh the page. If it continues to not work, clone the project files locally, and run "python app.py" in the terminal. 
+Additionally, the site may bug sometimes, and the UI layout will change. In this case, refresh the page.
 
 Features
 - 13 Moods Supported — From happy to overwhelmed to grateful, each mood offers 10 randomized, actionable suggestions.

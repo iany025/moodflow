@@ -1,17 +1,17 @@
 body.light {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    color: #000;
+    background-color: #f0f8ff;  /* Color styling */
+    color: #000;  /* Color styling */
     text-align: center;
-    padding: 2em;
+    padding: 2em;  /* Spacing */
 }
 
 body.dark {
     font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #f5f5f5;
+    background-color: #121212;  /* Color styling */
+    color: #f5f5f5;  /* Color styling */
     text-align: center;
-    padding: 2em;
+    padding: 2em;  /* Spacing */
 }
 
 /* Container Styles */
@@ -27,80 +27,80 @@ body.dark .container {
 
 .container {
     width: 60%;
-    margin: auto;
-    padding: 2em;
+    margin: auto;  /* Spacing */
+    padding: 2em;  /* Spacing */
     border-radius: 10px;
 }
 
 /* Inputs and Buttons */
 select, button {
-    padding: 0.5em;
-    margin: 1em;
+    padding: 0.5em;  /* Spacing */
+    margin: 1em;  /* Spacing */
     font-size: 1em;
     border-radius: 5px;
     border: none;
 }
 
 body.light select, body.light button {
-    background-color: #f0f8ff;
-    color: #000;
+    background-color: #f0f8ff;  /* Color styling */
+    color: #000;  /* Color styling */
 }
 
 body.dark select, body.dark button {
-    background-color: #2a2a2a;
-    color: #f5f5f5;
+    background-color: #2a2a2a;  /* Color styling */
+    color: #f5f5f5;  /* Color styling */
 }
 
 /* Suggestion Box */
 body.light .suggestion-box {
-    background-color: #e0f7fa;
+    background-color: #e0f7fa;  /* Color styling */
 }
 
 body.dark .suggestion-box {
-    background-color: #2c3e50;
+    background-color: #2c3e50;  /* Color styling */
 }
 
 .suggestion-box {
-    margin-top: 2em;
-    padding: 1em;
+    margin-top: 2em;  /* Spacing */
+    padding: 1em;  /* Spacing */
     border-radius: 8px;
 }
 
 .history, .favorites {
-    background-color: #f8f9fa;
-    margin-top: 2em;
-    padding: 1em;
+    background-color: #f8f9fa;  /* Color styling */
+    margin-top: 2em;  /* Spacing */
+    padding: 1em;  /* Spacing */
     border-radius: 8px;
     text-align: left;
 }
 
 body.dark .history, body.dark .favorites {
-    background-color: #2a2a2a;
-    color: #eee;
+    background-color: #2a2a2a;  /* Color styling */
+    color: #eee;  /* Color styling */
 }
 
 .history h3, .favorites h3 {
-    margin-top: 0;
+    margin-top: 0;  /* Spacing */
 }
 
 .history ul, .favorites ul {
     list-style-type: disc;
-    padding-left: 1.5em;
+    padding-left: 1.5em;  /* Spacing */
 }
 
 button[type="submit"] {
-    padding: 0.4em 0.8em;
+    padding: 0.4em 0.8em;  /* Spacing */
     border: none;
     border-radius: 5px;
-    background-color: #e0e0e0;
+    background-color: #e0e0e0;  /* Color styling */
     cursor: pointer;
 }
 
 body.dark button[type="submit"] {
-    background-color: #444;
-    color: white;
+    background-color: #444;  /* Color styling */
+    color: white;  /* Color styling */
 }
 
 button[type="submit"]:hover {
-    background-color: #c8c8c8;
+    background-color: #c8c8c8;  /* Color styling */
 }
