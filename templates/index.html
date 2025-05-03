@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MoodFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <button id="theme-toggle">Toggle Dark/Light Mode</button>
+        <h1>MoodFlow</h1>
+        <form method="POST">
+            <label for="mood">How are you feeling today?</label>
+            <select name="mood" id="mood">
+                <option disabled selected>Select a mood</option>
+                {% for mood in mood_suggestions.keys() %}
+                    <option value="{{ mood }}">{{ mood }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Get Suggestion</button>
+        </form>
+
+        {% if suggestion %}
+            <div class="suggestion-box">
+                <h2>{{ emoji}} {{ selected_mood }} Suggestion:</h2>
+                <p>{{ suggestion }}</p>
+                <form action="{{ url_for('favorite') }}" method="POST">
+                    <input type="hidden" name="mood" value="{{ selected_mood }}">
+                    <input type="hidden" name="suggestion" value="{{ suggestion }}">
+                    <button type="submit">⭐️ Favorite</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+        {% if session.history %}
+            <div class="history">
+                <h3>🕑 Recent Suggestions</h3>
+                <form id="clear-history-form" action="{{ url_for('clear_history') }}" method="GET" style="display: inline;">
+                    <button type="submit" onclick="return confirmClear('history')">🧹 Clear History</button>
+                </form>
+                <ul>
+                    {% for mood, item in session.history[-5:] %}
+                        <li><strong>{{ mood }}</strong>: {{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% if session.favorites %}
+            <div class="favorites">
+                <h3>⭐️ Your Favorites</h3>
+                <form id="clear-favorites-form" action="{{ url_for('clear_favorites') }}" method="GET" style="display: inline;">
+                    <button type="submit" onclick="return confirmClear('favorites')">🧽 Clear Favorites</button>
+                </form>
+                <ul>
+                    {% for mood, item in session.favorites %}
+                        <li><strong>{{ mood }}</strong>: {{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    <script>
+        const toggleButton = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme") || "light";
+        document.body.classList.add(currentTheme);
+
+        toggleButton.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            document.body.classList.toggle("light");
+
+            const theme = document.body.classList.contains("dark") ? "dark" : "light";
+            localStorage.setItem("theme", theme);
+        });
+        function confirmClear(type) {
+        return confirm(`Are you sure you want to clear your ${type}? This action cannot be undone.`);
+    }
+    </script>
+</body>
+</html>
